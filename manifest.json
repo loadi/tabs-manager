@@ -1,0 +1,24 @@
+{
+    "name": "Менеджер вкладок",
+    "description": "Группирует вкладки",
+    "version": "1.0",
+    "permissions":[
+        "tabs",
+        "storage"
+    ],
+    "manifest_version": 2,
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": true
+      },
+    "browser_action": {
+        "default_title": "Settings",
+        "default_popup": "popup/settings.html",
+
+    },
+    "author": "Loadi",
+    "icons": {
+        "48": "icon48.png"
+    }
+  
+}

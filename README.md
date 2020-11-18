@@ -13,7 +13,7 @@
 ![](https://sun9-38.userapi.com/wMu5h92Aw2YqqbK_fCWAVIpZqyIc1-RNrdgALw/QbqH3WA6p6M.jpg)
 
 ## Как работает?
-![](https://s8.gifyu.com/images/how-it-works.gif)
+![](how-it-works.gif)
 
 ## Как установить?
  В настоящий момент расширение корректно работает в **Google Chrome**.

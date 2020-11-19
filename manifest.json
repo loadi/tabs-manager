@@ -13,8 +13,7 @@
       },
     "browser_action": {
         "default_title": "Settings",
-        "default_popup": "popup/settings.html",
-
+        "default_popup": "popup/settings.html"
     },
     "author": "Loadi",
     "icons": {

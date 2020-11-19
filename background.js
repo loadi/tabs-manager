@@ -30,9 +30,11 @@ function setToStorage(x){
     chrome.storage.local.set({'tabs_list': x}, function() {});
 }
 
-async function openNewWindow(firstTab, isIncognito){
-    chrome.windows.create({incognito: isIncognito, url: firstTab}, window=>{
-        return window.id;
+function openNewWindow(firstTab, isIncognito){
+    return new Promise(function(r){
+            chrome.windows.create({incognito: isIncognito, url: firstTab}, window=>{
+            r(window.id);
+        });
     });
 }
 
@@ -48,7 +50,6 @@ function openTabsList(tabs, isIncognito){
         tabs.slice(1).forEach(tab=>{
             chrome.tabs.create({windowId: windowId, url: tab.url})
         });
-        return windowId;
     });
 }
 

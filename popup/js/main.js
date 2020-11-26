@@ -1,5 +1,6 @@
 const port = chrome.runtime.connect();
-const saveButton = document.getElementById("save");
+const saveButton = document.getElementById("toSaveMenu");
+const saveButtonPopup = document.getElementById("save");
 const loadButton = document.getElementById("load");
 
 
@@ -45,7 +46,7 @@ function showSessionData(sessionData){
     numTabsP.className = "tempP";
 
     dateP = document.createElement("p");
-    date = new Date(sessionData.timestamp); 
+    date = new Date(sessionData.timestamp);
     dateP.textContent = "Сохранено: " + date.toLocaleString("ru", {day: 'numeric', month: 'long', year: 'numeric'}) + " ";
     dateP.textContent += "в " + date.toLocaleString("ru", {hour: 'numeric', minute: 'numeric'});
     dateP.className = "tempP";
@@ -55,7 +56,7 @@ function showSessionData(sessionData){
     openButton.append("Открыть");
     openButton.id = sessionData.name;
     openButton.addEventListener('click', event => {openTabs(event.target.id)});
-   
+
     delButton = document.createElement("button");
     delButton.className = "tempButton";
     delButton.append("Удалить");
@@ -70,7 +71,7 @@ function showSessionData(sessionData){
     backButton.addEventListener('click', requestAllData);
     backButton.addEventListener('click', clearTempButtons);
     backButton.addEventListener('click', clearTempP);
-    
+
     div.append(isIncognitoP);
     div.append(numTabsP);
     div.append(dateP);
@@ -106,8 +107,8 @@ function showData(data){
         button.id = tab.name;
         button.className = "tempButton";
         button.append(button.id);
-        button.addEventListener('click', event => {getSessionData(event.target.id)});    
-        div.append(button);        
+        button.addEventListener('click', event => {getSessionData(event.target.id)});
+        div.append(button);
     });
 
     backButton = document.createElement("button");
@@ -118,7 +119,14 @@ function showData(data){
     div.append(backButton);
 }
 
-port.onMessage.addListener(function(msg){    
+// popup alerts
+
+function showPopupSave(msg){
+  document.getElementById("popupMsgSpan").textContent = msg;
+  window.location = "#savePopupMsg";
+}
+
+port.onMessage.addListener(function(msg){
     if (msg.allTabs != undefined){
         if (msg.allTabs == -1){
             alert("Нет сохраненных сессий");
@@ -129,21 +137,24 @@ port.onMessage.addListener(function(msg){
         showSessionData(msg.sessionInfo);
     }else if(msg.saveAlert != undefined){
         if(msg.saveAlert){
-            alert("Сессия сохранена");
+            showPopupSave("Группа сохранена");
         }else{
-            alert("Имя сессии должно быть уникальным");
+            showPopupSave("Имя группы должно быть уникальным");
         }
     }
 });
 
-saveButton.addEventListener('click', event => {
-    name = prompt("Имя группы");
-    if (name != "null" && name.length > 0){
+saveButtonPopup.addEventListener('click', event => {
+    name = document.getElementById("sessionName").value;
+    if (name.length > 0){
         save(name);
+        console.log("save" + name);
+        document.getElementById(sessionName).value = "";
+    }else{
+      showPopupSave("Имя группы не может быть пустым");
     }
   });
 
 loadButton.addEventListener('click', event => {
     requestAllData();
 });
-

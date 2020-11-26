@@ -17,22 +17,77 @@
         text-align: center;
       }
 
-
       .buttons button{
-        margin: 0px;
         width: 90%;
         margin: 2px 0px;
       }
-	  
+
+ /* popups wrapper */
+      .alert{
+        padding: 10px 0px;
+        text-align: center;
+      }
+
+      .alert input, button{
+        width: 90%;
+        margin: 2px 0px;
+        box-sizing: border-box;
+      }
+/* popups */
+      #savePopup{
+        position: fixed;
+        width: inherit;
+        height: inherit;
+        z-index: 1;
+        top: 0px;
+        visibility: hidden;
+        background-color: white;
+      }
+
+      #savePopup:target{
+        visibility: visible;
+      }
+
+      #savePopupMsg{
+        position: fixed;
+        width: inherit;
+        height: inherit;
+        z-index: 1;
+        top: 0px;
+        visibility: hidden;
+        background-color: white;
+      }
+
+      #savePopupMsg:target{
+        visibility: visible;
+      }
+
     </style>
   </head>
   <body>
     <div class="wrapper">
       <div class="buttons">
         <button id="load">Загрузить</button>
-        <button id="save">Сохранить</button>
+        <a href="#savePopup"><button id="toSaveMenu">Сохранить</button></a>
       </div>
     </div>
+      <div class="alert" id="savePopup">
+        <div>
+          <span>Имя группы</span>
+          <input type="text" id="sessionName">
+          <button id="save">Сохранить</button>
+          <a href="#"><button>Назад</button></a>
+        </div>
+      </div>
+
+      <div class="alert" id="savePopupMsg">
+        <div>
+          <span id="popupMsgSpan">Произошла ошибка</span>
+          <a href="#"><button>Назад</button></a>
+        </div>
+      </div>
+
+
     <script src="js/main.js"></script>
   </body>
 </html>

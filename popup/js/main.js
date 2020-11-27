@@ -24,11 +24,45 @@ function getSessionData(sessionName){
     port.postMessage({getSession: sessionName});
 }
 
+function delSessionReq(sessionName){
+  port.postMessage({delSession: sessionName});
+  clearTempButtons();
+  clearTempP();
+}
+
 function delSession(sessionName){
-    port.postMessage({delSession: sessionName});
-    clearTempButtons();
     clearTempP();
-    toMain();
+    clearTempButtons();
+    div = document.querySelector(".buttons");
+    buttonsDiv = document.createElement("div");
+    buttonsDiv.className = "tempP";
+
+    span = document.createElement("span");
+    span.textContent = "Удалить группу \"" + sessionName + "\"?";
+    span.className = "tempP";
+
+    yesButton = document.createElement("button");
+    yesButton.className = "tempButton halfButton";
+    yesButton.append("Да");
+    yesButton.addEventListener("click", e =>{
+      delSessionReq(sessionName);
+      showPopupSave("Группа удалена");
+      toMain();
+    });
+
+    noButton = document.createElement("button");
+    noButton.className = "tempButton halfButton";
+    noButton.append("Нет");
+    noButton.addEventListener("click", e =>{
+      clearTempP();
+      clearTempButtons();
+      requestAllData();
+    });
+
+    buttonsDiv.append(yesButton);
+    buttonsDiv.append(noButton);
+    div.append(span);
+    div.append(buttonsDiv);
 }
 
 function showSessionData(sessionData){
@@ -63,7 +97,6 @@ function showSessionData(sessionData){
     delButton.addEventListener('click', event => {delSession(event.target.id)});
     delButton.id = sessionData.name;
 
-
     backButton = document.createElement("button");
     backButton.style = "margin-top: 1.5em;";
     backButton.className = "tempButton bigButton";
@@ -93,7 +126,7 @@ function toMain(){
 
 function openTabs(groupName){
     port.postMessage({open: groupName});
-    toMain()
+    toMain();
 }
 
 
@@ -133,8 +166,6 @@ function showData(data){
     div.append(backButton);
 }
 
-// popup alerts
-
 function showPopupSave(msg){
   document.getElementById("popupMsgSpan").textContent = msg;
   window.location = "#savePopupMsg";
@@ -157,9 +188,11 @@ port.onMessage.addListener(function(msg){
         }
     }
 });
+
 saveButton.addEventListener('click', e =>{
   document.getElementById("sessionName").value = "";
 });
+
 saveButtonPopup.addEventListener('click', event => {
     name = document.getElementById("sessionName").value;
     if (name.length > 0){

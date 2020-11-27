@@ -52,13 +52,13 @@ function showSessionData(sessionData){
     dateP.className = "tempP";
 
     openButton = document.createElement("button");
-    openButton.className = "tempButton";
+    openButton.className = "tempButton bigButton";
     openButton.append("Открыть");
     openButton.id = sessionData.name;
     openButton.addEventListener('click', event => {openTabs(event.target.id)});
 
     delButton = document.createElement("button");
-    delButton.className = "tempButton";
+    delButton.className = "tempButton bigButton";
     delButton.append("Удалить");
     delButton.addEventListener('click', event => {delSession(event.target.id)});
     delButton.id = sessionData.name;
@@ -66,7 +66,7 @@ function showSessionData(sessionData){
 
     backButton = document.createElement("button");
     backButton.style = "margin-top: 1.5em;";
-    backButton.className = "tempButton";
+    backButton.className = "tempButton bigButton";
     backButton.append("Назад");
     backButton.addEventListener('click', requestAllData);
     backButton.addEventListener('click', clearTempButtons);
@@ -107,12 +107,26 @@ function showData(data){
         button.id = tab.name;
         button.className = "tempButton";
         button.append(button.id);
+        button.addEventListener('click', event => {openTabs(event.target.id)});
+        div.append(button);
+
+        button = document.createElement("button");
+        button.id = tab.name;
+        button.className = "tempButton smallButton";
+        button.append("i");
         button.addEventListener('click', event => {getSessionData(event.target.id)});
+        div.append(button);
+
+        button = document.createElement("button");
+        button.id = tab.name;
+        button.className = "tempButton smallButton";
+        button.append("x");
+        button.addEventListener('click', event => {delSession(event.target.id)});
         div.append(button);
     });
 
     backButton = document.createElement("button");
-    backButton.style = "margin-top: 1.5em;";
+    backButton.style = "margin-top: 1.5em; width: 95% !important;";
     backButton.className = "tempButton";
     backButton.append("Назад");
     backButton.addEventListener('click', toMain);
@@ -143,13 +157,14 @@ port.onMessage.addListener(function(msg){
         }
     }
 });
-
+saveButton.addEventListener('click', e =>{
+  document.getElementById("sessionName").value = "";
+});
 saveButtonPopup.addEventListener('click', event => {
     name = document.getElementById("sessionName").value;
     if (name.length > 0){
         save(name);
-        console.log("save" + name);
-        document.getElementById(sessionName).value = "";
+        document.getElementById("sessionName").value = "";
     }else{
       showPopupSave("Имя группы не может быть пустым");
     }

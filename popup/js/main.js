@@ -18,6 +18,9 @@ function clearTempP(){
     Object.values(document.getElementsByClassName("tempP")).forEach(button => {
         button.remove();
     });
+    Object.values(document.getElementsByClassName("tempDiv")).forEach(button => {
+        button.remove();
+    });
 }
 
 function getSessionData(sessionName){
@@ -88,14 +91,14 @@ function showSessionData(sessionData){
     openButton = document.createElement("button");
     openButton.className = "tempButton bigButton";
     openButton.append("Открыть");
-    openButton.id = sessionData.name;
-    openButton.addEventListener('click', event => {openTabs(event.target.id)});
+    //openButton.id = sessionData.name;
+    openButton.addEventListener('click', () => {openTabs(sessionData.name)});
 
     delButton = document.createElement("button");
     delButton.className = "tempButton bigButton";
     delButton.append("Удалить");
-    delButton.addEventListener('click', event => {delSession(event.target.id)});
-    delButton.id = sessionData.name;
+    //delButton.id = sessionData.name;
+    delButton.addEventListener('click', () => {delSession(sessionData.name)});
 
     backButton = document.createElement("button");
     backButton.style = "margin-top: 1.5em;";
@@ -136,26 +139,30 @@ function showData(data){
     loadButton.hidden = true;
 
     data.forEach(tab => {
-        button = document.createElement("button");
-        button.id = tab.name;
-        button.className = "tempButton";
-        button.append(button.id);
-        button.addEventListener('click', event => {openTabs(event.target.id)});
-        div.append(button);
+        buttonDiv = document.createElement("div");
+        buttonDiv.className = "tempDiv";
 
         button = document.createElement("button");
-        button.id = tab.name;
+        //button.id = tab.name;
+        button.className = "tempButton";
+        button.append(tab.name);
+        button.addEventListener('click', () => {openTabs(tab.name)});
+        buttonDiv.append(button);
+
+        button = document.createElement("button");
+        //button.id = tab.name;
         button.className = "tempButton smallButton";
         button.append("i");
-        button.addEventListener('click', event => {getSessionData(event.target.id)});
-        div.append(button);
+        button.addEventListener('click', () => {getSessionData(tab.name)});
+        buttonDiv.append(button);
 
         button = document.createElement("button");
-        button.id = tab.name;
+        //button.id = tab.name;
         button.className = "tempButton smallButton";
         button.append("x");
-        button.addEventListener('click', event => {delSession(event.target.id)});
-        div.append(button);
+        button.addEventListener('click', () => {delSession(tab.name)});
+        buttonDiv.append(button);
+        div.append(buttonDiv);
     });
 
     backButton = document.createElement("button");
@@ -189,11 +196,11 @@ port.onMessage.addListener(function(msg){
     }
 });
 
-saveButton.addEventListener('click', e =>{
+saveButton.addEventListener('click', () =>{
   document.getElementById("sessionName").value = "";
 });
 
-saveButtonPopup.addEventListener('click', event => {
+saveButtonPopup.addEventListener('click', () => {
     name = document.getElementById("sessionName").value;
     if (name.length > 0){
         save(name);
@@ -203,6 +210,6 @@ saveButtonPopup.addEventListener('click', event => {
     }
   });
 
-loadButton.addEventListener('click', event => {
+loadButton.addEventListener('click', () => {
     requestAllData();
 });

@@ -18,46 +18,51 @@
       }
 
       .wrapper{
-        padding: 10px 0px;
+        padding: 4%;
         text-align: center;
+      }
+
+      .buttons{
+        width: 100%;
+        overflow: hidden;
       }
 
       .buttons button{
-        width: 95%;
-        margin: 0.5%;
+        width: 100%;
+        margin: 0.5% 0px;
       }
 
-      .tempButton{
-        width: 85% !important;
-        margin: 0.5%;
-      }
-
-      .alert{
-        padding: 10px 0px;
-        text-align: center;
-      }
-
-      .alert input, button{
-        width: 95%;
-        margin: 0.5%;
-        box-sizing: border-box;
+      .tempDiv{
+        display: flex;
+        justify-content: space-between;
       }
 
       .smallButton{
         width: 4% !important;
       }
 
-      .bigButton{
-        width: 95% !important;
+      .alert{
+        text-align: center;
       }
 
-      .halfButton{
-        width: 25% !important;
+      .alert input{
+        margin: 0.5% 0px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .alert button{
+        margin: 0.5% 0px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .groupButton{
+        width: 89% !important;
       }
 
       #savePopup{
         position: fixed;
-        width: inherit;
         height: inherit;
         z-index: 1;
         top: 0px;
@@ -66,11 +71,13 @@
       }
 
       #savePopup:target{
+        padding: 4%;
+        width: 92%;
         visibility: visible;
       }
 
       #savePopupMsg{
-        position: fixed;
+        position: absolute;
         width: inherit;
         height: inherit;
         z-index: 1;
@@ -80,6 +87,8 @@
       }
 
       #savePopupMsg:target{
+        padding: 4%;
+        width: 92%;
         visibility: visible;
       }
 
@@ -92,17 +101,26 @@
         <a href="#savePopup"><button id="toSaveMenu">Сохранить</button></a>
       </div>
     </div>
+
       <div class="alert" id="savePopup">
         <div>
           <span>Имя группы</span>
+        </div>
+        <div>
           <input type="text" id="sessionName">
+        </div>
+        <div>
           <button id="save">Сохранить</button>
+        </div>
+        <div>
           <a href="#"><button>Назад</button></a>
         </div>
       </div>
       <div class="alert" id="savePopupMsg">
         <div>
           <span id="popupMsgSpan">Произошла ошибка</span>
+        </div>
+        <div>
           <a href="#"><button>Назад</button></a>
         </div>
       </div>

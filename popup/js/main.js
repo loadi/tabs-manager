@@ -144,7 +144,7 @@ function showData(data){
 
         button = document.createElement("button");
         //button.id = tab.name;
-        button.className = "tempButton";
+        button.className = "tempButton groupButton";
         button.append(tab.name);
         button.addEventListener('click', () => {openTabs(tab.name)});
         buttonDiv.append(button);
@@ -166,7 +166,7 @@ function showData(data){
     });
 
     backButton = document.createElement("button");
-    backButton.style = "margin-top: 1.5em; width: 95% !important;";
+    backButton.style = "margin-top: 1.5em;";
     backButton.className = "tempButton";
     backButton.append("Назад");
     backButton.addEventListener('click', toMain);

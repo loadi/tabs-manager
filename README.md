@@ -8,24 +8,28 @@
   - открывать вкладки в том же типе окна, в котором они были сохранены.
 
 ## Как выглядит?
-![](https://sun9-7.userapi.com/miSvPTyVh3eVOOGBLFSknoKTDWsMD6IuRpyymA/rT0vRWujREA.jpg)
-![](https://sun9-15.userapi.com/impg/lj2NwHjCtTn13UoXtYC9KGKL8dybAW9MfpKV9w/kDlw3nshqBs.jpg?size=387x387&quality=96&proxy=1&sign=26affc498eb1a7904314ab5cc2d8f0bf)
-![](https://sun9-38.userapi.com/wMu5h92Aw2YqqbK_fCWAVIpZqyIc1-RNrdgALw/QbqH3WA6p6M.jpg)
-![](https://sun9-31.userapi.com/impg/aPe62whFQ8SdoiTOCnFae3C-LiqVaxZgrzFdNg/-yumj89eKi4.jpg?size=386x388&quality=96&proxy=1&sign=f3aa3d5d200b289c8186b75d22df181a)
+![](https://sun9-62.userapi.com/impg/alTgbh5H6nUWCLQOc-w9bwN9nKyZGLk_yAl4SQ/WMoL6e9110c.jpg?size=399x398&quality=96&proxy=1&sign=0552d9bc4026d7720bbef210341a4230&type=album)
+![](https://sun9-4.userapi.com/impg/EVk91S4flFKdz0ThLFFbnbrTSrYeDOhP8Mb6NA/0fTfH3dvhi4.jpg?size=399x398&quality=96&proxy=1&sign=701205c2399afaf3a7a2be3625318833&type=album)
+![](https://sun9-22.userapi.com/impg/TjuQgmFPTyXoZ-b98zzgnXQ-MuGcrr6ZiXS4rg/wDMsvMPbFsw.jpg?size=399x398&quality=96&proxy=1&sign=ce1fbe7f0606d05d5adb98189b6a3bc9&type=album)
+![](https://sun9-31.userapi.com/impg/juHKwltlLvYYksFjYS3RSbCQob3pjaUqFVlKow/PhgjfG40djU.jpg?size=399x398&quality=96&proxy=1&sign=c24f9c5c2127fa49745b50d64063a93f&type=album)
 
 ## Как работает?
-
+![](howitworks.gif)
 
 ## Как установить?
- В настоящий момент расширение корректно работает в **Google Chrome**, **Mozilla Firefox** и **Opera**.
 
- Установка расширения для chrome может быть осуществленна двумя способами:
-  - первый
-    - скачать [zip](https://github.com/loadi/tabs-manager/archive/main.zip) архив с расширением;
-    - в браузере открыть вкладку расширений, после чего перенести архив в окно.
+### В Chrome
+  - скачать [zip](https://github.com/loadi/tabs-manager/archive/main.zip) архив с расширением;
+  - разархивировать его в новую папку в директории браузера;
+  - перейти во вкладку "Расширение" хрома;
+  - включить режим разработчка;
+  - нажать по кнопке "Загрузить распакованное расширение", после чего указать путь к папке с расширением.
 
+### В FireFox
+  - cкачать запакованное [расширение](https://github.com/loadi/tabs-manager/installers/tabs-manager-firefox.xpi). Установка начнется автоматически.
 
-  - второй
-    - скачать [zip](https://github.com/loadi/tabs-manager/archive/main.zip) архив с расширением;
-    - разархивировать его в любую из папок (например, папку браузера);
-    - в браузере нажать по кнопке "загрузить распакованное расширение", после чего указать путь к папке.
+### В Opera
+  - cкачать запакованное [расширение](https://github.com/loadi/tabs-manager/installers/tabs-manager-opera.crx);
+  - открыть расширения браузера;
+  - напротив расширения нажать "Установить";
+  - подтвердить установку.

@@ -9,8 +9,9 @@
 
 ## Как выглядит?
 ![](https://sun9-7.userapi.com/miSvPTyVh3eVOOGBLFSknoKTDWsMD6IuRpyymA/rT0vRWujREA.jpg)
-![](https://sun9-34.userapi.com/cDoTPKM7y9CU4kDz8vyzLOW-PKZKfbuNyo8iAA/hImASJtuD8k.jpg)
+![](https://sun9-15.userapi.com/impg/lj2NwHjCtTn13UoXtYC9KGKL8dybAW9MfpKV9w/kDlw3nshqBs.jpg?size=387x387&quality=96&proxy=1&sign=26affc498eb1a7904314ab5cc2d8f0bf)
 ![](https://sun9-38.userapi.com/wMu5h92Aw2YqqbK_fCWAVIpZqyIc1-RNrdgALw/QbqH3WA6p6M.jpg)
+![](https://sun9-31.userapi.com/impg/aPe62whFQ8SdoiTOCnFae3C-LiqVaxZgrzFdNg/-yumj89eKi4.jpg?size=386x388&quality=96&proxy=1&sign=f3aa3d5d200b289c8186b75d22df181a)
 
 ## Как работает?
 

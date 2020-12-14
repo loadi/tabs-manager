@@ -26,7 +26,7 @@
   - нажать по кнопке "Загрузить распакованное расширение", после чего указать путь к папке с расширением.
 
 ### В FireFox
-  - cкачать запакованное [расширение](https://github.com/loadi/tabs-manager/installers/tabs-manager-firefox.xpi). Установка произойдет автоматически.
+  - установить [расширение](https://addons.mozilla.org/ru/firefox/addon/tabs-group-manager) из центра дополнений
 
 ### В Opera
   - cкачать запакованное [расширение](https://github.com/loadi/tabs-manager/installers/tabs-manager-opera.crx);

@@ -34,11 +34,5 @@
   - напротив расширения нажать "Установить";
   - подтвердить установку.
 
-### В Opera
-  - cкачать запакованное [расширение](https://github.com/loadi/tabs-manager/installers/tabs-manager-opera.crx);
-  - открыть расширения браузера;
-  - напротив расширения нажать "Установить";
-  - подтвердить установку.
-
 ### В Yandex Browser
   - cкачать запакованное [расширение](https://github.com/loadi/tabs-manager/installers/tabs-manager-opera.crx). Установка произойдет автоматически.
